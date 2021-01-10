@@ -1,15 +1,17 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import useContectValue from '../context';
+import useContextValue from '../context';
 
 const ProtectedRoute = ({
   component: Component,
   routeProps,
   componentProps,
 }) => {
-  const {
-    authenticatedUser: { accessToken },
-  } = useContectValue();
+  const value = useContextValue();
+  const accessToken = value?.authenticatedUser?.accessToken;
+  // const {
+  //   authenticatedUser: { accessToken },
+  // } = useContextValue();
   const isAuthenticated = !!accessToken;
 
   return (

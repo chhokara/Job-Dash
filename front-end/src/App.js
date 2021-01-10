@@ -6,6 +6,8 @@ import LoginSignUp from './screens/LoginSignUp/index.js';
 import { Provider } from './context';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoadingOverlay from './components/LoadingOverlay';
+import AllSetUpScreen from './screens/AllSetUpScreen';
+import DashBoard from './screens/DashBoard';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Provider>
         <div>
           <Route path="/" exact component={LoginSignUp} />
+          <Route path="/allsetup" exact component={AllSetUpScreen} />
+          <Route path="/dashboard" exact component={DashBoard} />
           <ProtectedRoute
             routeProps={{
               path: '/profilesetup',
